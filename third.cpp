@@ -1,30 +1,50 @@
+// this program converts 1 byte to a decimal numeric number
+
 #include <iostream>
 
 using namespace std;
 
-// int fibonacci(int num){
-//     if (num == 0){
-//         return 1;
-//     }else{
-//         return fibonacci(num-1) + fibonacci(num-2);
-//     }
-// }
-
-int fib(int x) {
-    if (x == 0){
-        return 0;
+long int convertBytesToTheMaxNumberItCanStore(int num){
+    long int a = 1;
+    long int b = 0;
+    for(int i = 0;i < num; i++){
+        for(int i = 0; i < 8; i++){
+            b = b + a;
+            a = a * 2;
+        }
     }
-    if (x == 1){
-        return 1;
-    }
-
-    return fib(x-1)+fib(x-2);
+    return b;
 }
 
 int main(){
-    for(int i = 0; i <= 10; i++)
-    {
-        cout << i << " = " << fib(i) << endl;
-    }
+
+    // We should expect a output of 255
+    cout << convertBytesToTheMaxNumberItCanStore(1) << endl;
+
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
